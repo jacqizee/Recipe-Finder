@@ -20,7 +20,7 @@ const SiteNavbar = () => {
       }
     }
     getRandom()
-  })
+  }, [])
 
   return (
     <Navbar bg="secondary" variant="light" expand="sm">

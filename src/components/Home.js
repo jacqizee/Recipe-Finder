@@ -17,7 +17,7 @@ const Home = () => {
       }
     }
     getRandom()
-  })
+  }, [])
 
   return (
     <section className = 'home-container'>
