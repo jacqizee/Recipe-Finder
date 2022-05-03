@@ -28,9 +28,9 @@ const Category = () => {
   }, [categoryID])
 
   return (
-    <Container className="category-container">
+    <section className="cat-container">
       <h1>{categoryID}</h1>
-      <Row>
+      <div className='cat-detail-grid'>
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
         : 
@@ -38,16 +38,15 @@ const Category = () => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
           return (
             <Link to={`/recipe/${id}`} key={id}>
-              <Col md='3'>
-                <div className = 'category-tile'>{name}
-                  <img src={img} alt ={name}/>
-                </div>
-              </Col>
+              <div className='cat-detail-card'>
+                <div className = 'cat-title'>{name}</div>
+                <img src={img} alt ={name}/>
+              </div>
             </Link>
           )
         })}
-      </Row>
-    </Container>
+      </div>
+    </section>
   )
 }
 

@@ -35,9 +35,9 @@ const Regions = () => {
 
 
   return (
-    <Container>
+    <section className = 'region-container'>
       <h1>Regions</h1>
-      <Row>
+      <div className="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
         : 
@@ -45,15 +45,15 @@ const Regions = () => {
           const { strArea } = region
           return (
             <Link to={`/region/${strArea}`} key={index}>
-              <Col md='4'>
-                <div className = 'area-tile' id ={strArea}>{strArea}
-                </div>
-              </Col>
+              <div className = 'region-tile'>
+                <div className = 'area-title'>{strArea}</div>
+                <div className = 'flag-container' id = { strArea }></div>
+              </div>
             </Link>
           )
         })}
-      </Row>
-    </Container>
+      </div>
+    </section>
   )
 }
 

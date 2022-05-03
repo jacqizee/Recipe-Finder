@@ -28,9 +28,9 @@ const Region = () => {
   }, [regionID])
 
   return (
-    <Container className="region-container">
+    <section className="region-container">
       <h1>{regionID}</h1>
-      <Row>
+      <div className ="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
         : 
@@ -38,16 +38,15 @@ const Region = () => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
           return (
             <Link to={`/recipe/${id}`} key={id}>
-              <Col md='3'>
-                <div className = 'region-tile'>{name}
-                  <img src={img} alt ={name}/>
-                </div>
-              </Col>
+              <div className = 'region-tile'>
+                <div className = 'area-title'>{name}</div>
+                <img src={img} alt ={name}/>
+              </div>
             </Link>
           )
         })}
-      </Row>
-    </Container>
+      </div>
+    </section>
   )
 }
 

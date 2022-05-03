@@ -11,9 +11,9 @@ import { Container } from 'react-bootstrap'
 const Categories = () => {
 
 
-  const [ categories, setCategories ] = useState([])
-  const [ loading, setLoading ] = useState(true)
-  const [ error, setErrors ] = useState(false)
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setErrors] = useState(false)
 
 
   useEffect(() => {
@@ -35,26 +35,25 @@ const Categories = () => {
 
 
   return (
-    <Container>
+    <section className='category-container'>
       <h1>Categories</h1>
-      <Row>
-        {loading ? <p>loading</p> 
-        : error ? <p>error</p> 
-        : 
-        categories.map(category => {
-          const { strCategory, idCategory, strCategoryThumb } = category
-          return (
-            <Link to={`/category/${strCategory}`} key={idCategory}>
-              <Col md='4'>
-                <div className = 'category-tile'>{strCategory}
-                  <img src={strCategoryThumb} alt ='category'/>
-                </div>
-              </Col>
-            </Link>
-          )
-        })}
-      </Row>
-    </Container>
+      <div className="category-content">
+        {loading ? <p>loading</p>
+          : error ? <p>error</p>
+            :
+            categories.map(category => {
+              const { strCategory, idCategory, strCategoryThumb } = category
+              return (
+                <Link to={`/category/${strCategory}`} key={idCategory}>
+                  <div className='category-tile'>
+                    <div className='category-title'>{strCategory}</div>
+                    <img src={strCategoryThumb} alt='category' />
+                  </div>
+                </Link>
+              )
+            })}
+      </div>
+    </section>
   )
 }
 
