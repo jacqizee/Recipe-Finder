@@ -2,6 +2,9 @@ import React, { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+
 const Recipe = () => {
 
   const { recipeID } = useParams()
@@ -25,58 +28,55 @@ const Recipe = () => {
   }, [recipeID])
 
   return (
-    <div className='recipe'>
-      {loading ? <p>loading</p> 
-        : error ? <p>error</p> 
-        : <section className="recipe-container">
-          <header>
-            <h1>{recipe.strMeal}</h1>
-            <p>About text</p>
-          </header>
-          <section className="middle"></section>
-            <div className="image">
-              <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+    loading ? <p>loading</p> 
+      : error ? <p>error</p> 
+      : 
+      <Row xs="1" md="2" className="recipe-container">
+        <Col className="overview">
+          <h1>{recipe.strMeal}</h1>
+          <p>About text</p>
+          <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+          <section className="buttons">
+            <button className="btn btn-dark">View Original Recipe</button>
+            <button className="btn btn-dark">Watch on YouTube</button>
+          </section>
+        </Col>
+        <Col className="steps">
+          <section className="ingredients">
+            <h3>Ingredients</h3>
+            <div className="ingredients-list">
+              <ul>
+                <li>{recipe.strIngredient1} - {recipe.strMeasure1}</li>
+                <li>{recipe.strIngredient2} - {recipe.strMeasure2}</li>
+                <li>{recipe.strIngredient3} - {recipe.strMeasure3}</li>
+                <li>{recipe.strIngredient4} - {recipe.strMeasure4}</li>
+                <li>{recipe.strIngredient5} - {recipe.strMeasure5}</li>
+                <li>{recipe.strIngredient6} - {recipe.strMeasure6}</li>
+                <li>{recipe.strIngredient7} - {recipe.strMeasure7}</li>
+                <li>{recipe.strIngredient8} - {recipe.strMeasure8}</li>
+                <li>{recipe.strIngredient9} - {recipe.strMeasure9}</li>
+                <li>{recipe.strIngredient10} - {recipe.strMeasure10}</li>
+              </ul>
+              <ul>
+                <li>{recipe.strIngredient11} - {recipe.strMeasure11}</li>
+                <li>{recipe.strIngredient12} - {recipe.strMeasure12}</li>
+                <li>{recipe.strIngredient13} - {recipe.strMeasure13}</li>
+                <li>{recipe.strIngredient14} - {recipe.strMeasure14}</li>
+                <li>{recipe.strIngredient15} - {recipe.strMeasure15}</li>
+                <li>{recipe.strIngredient16} - {recipe.strMeasure16}</li>
+                <li>{recipe.strIngredient17} - {recipe.strMeasure17}</li>
+                <li>{recipe.strIngredient18} - {recipe.strMeasure18}</li>
+                <li>{recipe.strIngredient19} - {recipe.strMeasure19}</li>
+                <li>{recipe.strIngredient20} - {recipe.strMeasure20}</li>
+              </ul>
             </div>
-            <div className="recipe-text">
-              <div className="ingredients">
-                <h3>Ingredients</h3>
-                <div className="ingredients-part-1">
-                  <ul>
-                    <li>{recipe.strMeasure1} {recipe.strIngredient1}</li>
-                    <li>{recipe.strMeasure2} {recipe.strIngredient2}</li>
-                    <li>{recipe.strMeasure3} {recipe.strIngredient3}</li>
-                    <li>{recipe.strMeasure4} {recipe.strIngredient4}</li>
-                    <li>{recipe.strMeasure5} {recipe.strIngredient5}</li>
-                    <li>{recipe.strMeasure6} {recipe.strIngredient6}</li>
-                    <li>{recipe.strMeasure7} {recipe.strIngredient7}</li>
-                    <li>{recipe.strMeasure8} {recipe.strIngredient8}</li>
-                    <li>{recipe.strMeasure9} {recipe.strIngredient9}</li>
-                    <li>{recipe.strMeasure10} {recipe.strIngredient10}</li>
-                  </ul>
-                </div>
-                <div className="ingredients-part-2">
-                  <ul>
-                    <li>{recipe.strMeasure11} {recipe.strIngredient11}</li>
-                    <li>{recipe.strMeasure12} {recipe.strIngredient12}</li>
-                    <li>{recipe.strMeasure13} {recipe.strIngredient13}</li>
-                    <li>{recipe.strMeasure14} {recipe.strIngredient14}</li>
-                    <li>{recipe.strMeasure15} {recipe.strIngredient15}</li>
-                    <li>{recipe.strMeasure16} {recipe.strIngredient16}</li>
-                    <li>{recipe.strMeasure17} {recipe.strIngredient17}</li>
-                    <li>{recipe.strMeasure18} {recipe.strIngredient18}</li>
-                    <li>{recipe.strMeasure19} {recipe.strIngredient19}</li>
-                    <li>{recipe.strMeasure20} {recipe.strIngredient20}</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="how-to">
-                <h3>How To</h3>
-                <p>{recipe.strInstructions}</p>
-              </div>
-            </div>
-          <section className="bottom"></section>
-          </section>}
-    </div>
+          </section>
+          <section className="how-to">
+            <h3>How To</h3>
+            <p>{recipe.strInstructions}</p>
+          </section>
+        </Col>
+      </Row>
   )
 }
 

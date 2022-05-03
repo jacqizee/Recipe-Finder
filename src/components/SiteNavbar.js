@@ -23,7 +23,7 @@ const SiteNavbar = () => {
   }, [])
 
   return (
-    <Navbar bg="secondary" variant="light" expand="sm">
+    <Navbar bg="secondary" expand="sm">
       <Container>
         <Navbar.Brand as={Link} to="/">🍽</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -1,0 +1,32 @@
+.recipe-container {
+  max-height: 80vh;
+  margin: 1rem auto;
+  max-width: 95vw;
+  .overview {
+    img {
+      width: 100%;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+  .steps {
+    .ingredients {
+      .ingredients-list {
+        display: flex;
+        font-size: .85rem;
+        ul {
+          margin-right: 2rem;
+        }
+      }
+    }
+    .how-to {
+      p {
+        font-size: .85rem;
+        max-height: 50%;
+        overflow: scroll;
+      }
+    }
+  }
+}
