@@ -1,18 +1,32 @@
 .home-container {
   text-align: center;
   max-height: 100vh;
+  background-color: #d7dde6;
+  width: 50%;
+  height: 95%;
+  margin: 0 auto;
   h1 {
     margin: 25px;
+    margin-top: 75px;
   }
   .home-content {
     display: flex;
-    justify-content: space-evenly;
-    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
+    margin: 45px auto;
+    p {
+      margin: 20px;
+    }
     a {
       text-decoration: none;
       background-color: #BBCDE5;
+      border-radius: 50px;
       div {
-        margin: 0 auto;
+        height: 250px;
+        width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

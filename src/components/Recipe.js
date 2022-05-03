@@ -44,8 +44,8 @@ const Recipe = () => {
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
     // } else if (favArray.indexOf(recipe.strID) !== -1) {
     //   console.log('present', favArray.indexOf(recipe) === -1)
-    //   // favArray.splice(favArray.indexOf(recipe), 1)
-    //   // window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
+      // favArray.splice(favArray.indexOf(recipe), 1)
+      // window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
     } else {
       favArray.push(recipe)
       favArray = favArray.map(value => JSON.stringify(value))

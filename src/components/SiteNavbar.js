@@ -8,7 +8,6 @@ import Nav from 'react-bootstrap/Nav'
 
 const SiteNavbar = () => {
 
-  const [ random, setRandom ] = useState(null)
   const navigate = useNavigate()
 
   const getRandom = async () => {

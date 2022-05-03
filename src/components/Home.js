@@ -28,6 +28,7 @@ const Home = () => {
             <h2>Category</h2>
           </div>
         </Link>
+        <p>or</p>
         <Link to="/region">
           <div className="region">
             <h2>Region</h2>
