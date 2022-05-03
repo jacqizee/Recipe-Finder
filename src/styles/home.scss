@@ -1,0 +1,14 @@
+.home-container {
+  text-align: center;
+  .home-content {
+    display: flex;
+    max-width: 100%;
+    div {
+      width: calc(100% / 2 - 150px);
+      height: 300px;
+      margin: 75px;
+      background-color: red;
+    }
+  }
+}
+
