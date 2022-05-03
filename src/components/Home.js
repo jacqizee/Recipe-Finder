@@ -36,12 +36,11 @@ const Home = () => {
       </section>
       <section className = 'home-random'>
         <Link to={`/recipe/${random}`}>
-          <button className = 'btn-random'>
-            <h2>Random recipe</h2>
+          <button className = 'btn btn-primary btn-random'>
+            I can't decide!
           </button>
         </Link>
       </section>
-
     </section>
   )
 

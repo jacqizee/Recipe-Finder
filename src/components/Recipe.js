@@ -11,13 +11,13 @@ const Recipe = () => {
   const [ recipe, setRecipe ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
+  let favoriteMessage = 'Add to Favorites'
   
   useEffect(() => {
     const getRecipe = async () => {
       try {
         const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeID}`)
         setRecipe(data.meals[0])
-        console.log(data.meals[0])
       } catch (error) {
         console.log(error)
         setError(true)
@@ -27,18 +27,47 @@ const Recipe = () => {
     getRecipe()
   }, [recipeID])
 
+  const formatIngredients = () => {
+    let ingredients = []
+    for (let i = 1; i <= 20; i++) {
+      if (recipe[`strIngredient${i}`]) {
+        ingredients.push(<li key={i}>{recipe[`strIngredient${i}`]} {recipe[`strMeasure${i}`].toLowerCase()}</li>)
+      }
+    }
+    return ingredients
+  }
+
+  const addFav = () => {
+    let favArray = JSON.parse(window.localStorage.getItem('fav-recipes'))
+    if (favArray === null) {
+      favArray = [recipe]
+      window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
+    // } else if (favArray.indexOf(recipe.strID) !== -1) {
+    //   console.log('present', favArray.indexOf(recipe) === -1)
+    //   // favArray.splice(favArray.indexOf(recipe), 1)
+    //   // window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
+    } else {
+      favArray.push(recipe)
+      favArray = favArray.map(value => JSON.stringify(value))
+      let uniqueArray = [ ...new Set(favArray) ]
+      uniqueArray = uniqueArray.map(value => JSON.parse(value))
+      window.localStorage.setItem('fav-recipes', JSON.stringify(uniqueArray))
+    }
+  }
+
   return (
     loading ? <p>loading</p> 
       : error ? <p>error</p> 
-      : 
+      :
       <Row xs="1" md="2" className="recipe-container">
         <Col className="overview">
           <h1>{recipe.strMeal}</h1>
-          <p>About text</p>
+          <p>{recipe.strArea} {recipe.strCategory}</p>
           <img src={recipe.strMealThumb} alt={recipe.strMeal} />
           <section className="buttons">
-            <button className="btn btn-dark">View Original Recipe</button>
-            <button className="btn btn-dark">Watch on YouTube</button>
+            <a href={recipe.strSource} target="_blank" rel="noopener noreferrer"><button className="btn btn-dark">View Original Recipe</button></a>
+            <a href={recipe.strYoutube} target="_blank" rel="noopener noreferrer"><button className="btn btn-dark">Watch on YouTube</button></a>
+            <button className="btn btn-dark" onClick={addFav}>{favoriteMessage}</button>
           </section>
         </Col>
         <Col className="steps">
@@ -46,28 +75,7 @@ const Recipe = () => {
             <h3>Ingredients</h3>
             <div className="ingredients-list">
               <ul>
-                <li>{recipe.strIngredient1} - {recipe.strMeasure1}</li>
-                <li>{recipe.strIngredient2} - {recipe.strMeasure2}</li>
-                <li>{recipe.strIngredient3} - {recipe.strMeasure3}</li>
-                <li>{recipe.strIngredient4} - {recipe.strMeasure4}</li>
-                <li>{recipe.strIngredient5} - {recipe.strMeasure5}</li>
-                <li>{recipe.strIngredient6} - {recipe.strMeasure6}</li>
-                <li>{recipe.strIngredient7} - {recipe.strMeasure7}</li>
-                <li>{recipe.strIngredient8} - {recipe.strMeasure8}</li>
-                <li>{recipe.strIngredient9} - {recipe.strMeasure9}</li>
-                <li>{recipe.strIngredient10} - {recipe.strMeasure10}</li>
-              </ul>
-              <ul>
-                <li>{recipe.strIngredient11} - {recipe.strMeasure11}</li>
-                <li>{recipe.strIngredient12} - {recipe.strMeasure12}</li>
-                <li>{recipe.strIngredient13} - {recipe.strMeasure13}</li>
-                <li>{recipe.strIngredient14} - {recipe.strMeasure14}</li>
-                <li>{recipe.strIngredient15} - {recipe.strMeasure15}</li>
-                <li>{recipe.strIngredient16} - {recipe.strMeasure16}</li>
-                <li>{recipe.strIngredient17} - {recipe.strMeasure17}</li>
-                <li>{recipe.strIngredient18} - {recipe.strMeasure18}</li>
-                <li>{recipe.strIngredient19} - {recipe.strMeasure19}</li>
-                <li>{recipe.strIngredient20} - {recipe.strMeasure20}</li>
+                { formatIngredients() }
               </ul>
             </div>
           </section>

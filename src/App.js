@@ -8,6 +8,7 @@ import Regions from './components/Regions'
 import Region from './components/Region'
 import Recipe from './components/Recipe'
 import SiteNavbar from './components/SiteNavbar.js'
+import Favorites from './components/Favorites'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path = '/region' element = {<Regions />} />
         <Route path = '/region/:regionID' element = {<Region />} />
         <Route path = '/recipe/:recipeID' element = {<Recipe />} />
+        <Route path = '/favorites' element = {<Favorites />} />
       </Routes>
     </BrowserRouter>
 

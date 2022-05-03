@@ -1,14 +1,19 @@
 .home-container {
   text-align: center;
-  height: 100vh;
+  max-height: 100vh;
+  h1 {
+    margin: 25px;
+  }
   .home-content {
     display: flex;
-    max-width: 100%;
-    div {
-      width: calc(100% / 2 - 150px);
-      height: 300px;
-      margin: 75px;
-      background-color: red;
+    justify-content: space-evenly;
+    margin: 100px auto;
+    a {
+      text-decoration: none;
+      background-color: #BBCDE5;
+      div {
+        margin: 0 auto;
+      }
     }
   }
 }
