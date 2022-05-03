@@ -47,7 +47,7 @@ const Regions = () => {
             <Link to={`/region/${strArea}`} key={index}>
               <div className = 'region-tile'>
                 <div className = 'area-title'>{strArea}</div>
-                <div className = 'flag-container' id = { strArea }></div>
+                <div className = 'flag-container' id = {strArea}></div>
               </div>
             </Link>
           )
