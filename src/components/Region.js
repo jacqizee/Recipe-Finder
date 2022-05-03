@@ -1,60 +1,54 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState} from 'react'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Container } from 'react-bootstrap'
 
-
-
 const Region = () => {
 
-
-  const [ regions, setRegions ] = useState([])
+  const { regionID } = useParams()
+  const [ region, setRegion ] = useState([])
   const [ loading, setLoading ] = useState(true)
-  const [ error, setErrors ] = useState(false)
-
-
+  const [ error, setError ] = useState(false)
+  
   useEffect(() => {
-
-    const getRegions = async () => {
+    const getRegion = async () => {
       try {
-        const { data } = await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list')
-        console.log(data)
-        setRegions(data.meals)
+        const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${regionID}`)
+        setRegion(data.meals)
       } catch (error) {
         console.log(error)
-        setErrors(true)
+        setError(true)
       }
       setLoading(false)
     }
-    getRegions()
-  })
-
-
+    getRegion()
+  }, [regionID])
 
   return (
-    <Container>
-      <h1>Regions</h1>
+    <Container className="region-container">
+      <h1>{regionID}</h1>
       <Row>
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
         : 
-        regions.map((region, index) => {
-          const { strArea } = region
+        region.map(dish => {
+          const { idMeal, strMeal, strMealThumb } = dish
           return (
-            
-            <Col key={index} md='4'>
-              <div className = 'area-tile' id ={strArea}>{strArea}
-              </div>
-      
-            </Col>
+            <Link to={`/recipe/${idMeal}`} key={idMeal}>
+              <Col md='3'>
+                <div className = 'region-tile'>{strMeal}
+                  <img src={strMealThumb} alt ={strMeal}/>
+                </div>
+              </Col>
+            </Link>
           )
         })}
       </Row>
     </Container>
   )
 }
-
 
 export default Region
