@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <section className='home-container'>
       <h1>RecipeFinder</h1>
-      <h3>Find a recipe...</h3>
+      <h5>Search from over 200 recipes from 14 different countries.</h5>
       <section className='home-content'>
         <Link to="/category">
           <div className="categories">
