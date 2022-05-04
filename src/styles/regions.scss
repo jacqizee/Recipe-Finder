@@ -33,14 +33,228 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      
       }
     }
   }
 }
 
-// #American {
-//   background-image: url('/src/images/usa-flag.png');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
+.flag-container {
+  height:200px;
+}
+
+#American {
+  background-image: url('../images/usa-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#British {
+  background-image: url('../images/british-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Canadian {
+  background-image: url('../images/canadian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Chinese {
+  background-image: url('../images/chinese-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Croatian {
+  background-image: url('../images/croatian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Dutch {
+  background-image: url('../images/dutch-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Egyptian {
+  background-image: url('../images/egypt-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#French {
+  background-image: url('../images/french-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Greek {
+  background-image: url('../images/greek-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Indian {
+  background-image: url('../images/indian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Irish {
+  background-image: url('../images/irish-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Italian {
+  background-image: url('../images/italian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Jamaican {
+  background-image: url('../images/jamaican-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Japanese {
+  background-image: url('../images/japanese-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Kenyan {
+  background-image: url('../images/kenyan-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Malaysian {
+  background-image: url('../images/malaysian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Mexican {
+  background-image: url('../images/mexican-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Moroccan {
+  background-image: url('../images/moroccan-flag.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Polish {
+  background-image: url('../images/polish-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Portuguese {
+  background-image: url('../images/portugese-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Russian {
+  background-image: url('../images/russian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Spanish {
+  background-image: url('../images/spanish-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Thai {
+  background-image: url('../images/thai-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Tunisian {
+  background-image: url('../images/tunisian-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Turkish {
+  background-image: url('../images/turkish-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Unknown {
+  background-image: url('../images/world-map.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
+
+#Vietnamese {
+  background-image: url('../images/vietnamese-flag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+}
