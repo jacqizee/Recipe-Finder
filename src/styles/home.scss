@@ -16,8 +16,22 @@
     justify-content: center;
     align-items: center;
     margin: 45px auto;
+    .categories {
+      display: flex;
+      flex-direction: column;
+      p{
+        margin:0;
+      }
+    }
     p {
       margin: 20px;
+    }
+    .region {
+      display: flex;
+      flex-direction: column;
+      p{
+        margin:0;
+      }
     }
     a {
       text-decoration: none;

@@ -8,7 +8,7 @@ const RecipeList = () => {
 const [recipes, setRecipes] = useState([])
 const [filteredRecipes, setFilteredRecipes] = useState([])
 const [filters, setFilters] = useState({
-    strInstructions: '',
+    // strInstructions: '',
     searchTerm: ''
   })
 

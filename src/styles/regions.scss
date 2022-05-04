@@ -14,8 +14,6 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    width: 1200px;
-
     .region-tile {
       border: 2px solid white;
       border-radius: 10px;
@@ -23,7 +21,6 @@
       margin: 15px;
       box-shadow: 0 0 15px #222222;
       background-color: #BBCDE5;
-
       .area-title {
         padding: 5px 0px 5px 0px;
         background-color: #A67F8E;

@@ -5,8 +5,8 @@ import axios from 'axios'
 
 const Home = () => {
 
-  const [ random, setRandom ] = useState(null)
-  
+  const [random, setRandom] = useState(null)
+
   useEffect(() => {
     const getRandom = async () => {
       try {
@@ -20,24 +20,26 @@ const Home = () => {
   }, [])
 
   return (
-    <section className = 'home-container'>
-      <h1>Recipe Finder</h1>
-      <section className = 'home-content'>
+    <section className='home-container'>
+      <h1>Find my recipe...</h1>
+      <section className='home-content'>
         <Link to="/category">
           <div className="categories">
             <h2>Category</h2>
+            <p>(Vegan, Chicken, Pork etc.)</p>
           </div>
         </Link>
         <p>or</p>
         <Link to="/region">
           <div className="region">
             <h2>Region</h2>
+            <p>(Italian, Indian, Chinese etc.)</p>
           </div>
         </Link>
       </section>
-      <section className = 'home-random'>
+      <section className='home-random'>
         <Link to={`/recipe/${random}`}>
-          <button className = 'btn btn-primary btn-random'>
+          <button className='btn btn-primary btn-random'>
             I can't decide!
           </button>
         </Link>
