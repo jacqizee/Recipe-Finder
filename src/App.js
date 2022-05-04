@@ -10,7 +10,7 @@ import Recipe from './components/Recipe'
 import SiteNavbar from './components/SiteNavbar.js'
 import Favorites from './components/Favorites'
 import RecipeList from './components/RecipeList' 
-import PageNotFound from './components/PageNotFound'
+import PageNotFound from './components/utility/PageNotFound'
 
 
 const App = () => {

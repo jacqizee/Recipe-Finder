@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import PageNotFound from './PageNotFound'
+import PageNotFound from './utility/PageNotFound'
 import Spinner from './utility/Spinner'
 
 const Categories = () => {

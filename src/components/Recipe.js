@@ -41,20 +41,25 @@ const Recipe = () => {
     return ingredients
   }
 
+  useEffect(() => {
+    const getFavStatus = () => {
+      const favArrayString = JSON.parse(window.localStorage.getItem('fav-recipes')).map(value => JSON.stringify(value))
+      favArrayString.indexOf(JSON.stringify(recipe)) !== -1 ? setFavMsg("💔") : setFavMsg("❤️")
+    }
+    getFavStatus()
+  }, [recipe])
+
   const addFav = () => {
     let favArray = JSON.parse(window.localStorage.getItem('fav-recipes'))
     if (favArray === null) {
       favArray = [recipe]
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
-      setFavMsg("💕")
     } else {
       let favArrayString = favArray.map(value => JSON.stringify(value))
       if (favArrayString.indexOf(JSON.stringify(recipe)) === -1) {
         favArrayString.push(JSON.stringify(recipe))
-        setFavMsg("💔")
       } else {
         favArrayString.splice(favArrayString.indexOf(JSON.stringify(recipe)), 1)
-        setFavMsg("💕")
       }
       favArray = favArrayString.map(value => JSON.parse(value))
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
