@@ -4,9 +4,10 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
+  font-weight: 700;
   h1 {
     margin-top: 20px;
-    color: #2E282A;
+    color: #63432C;
   }
   .category-content {
     display:flex;
@@ -14,20 +15,20 @@
     max-width: 100%;
     width: 1200px;
     .category-tile {
-      border: 2px solid white;
+      border: 2px solid #64332c;
       border-radius: 10px;
       width: calc(1200px / 3 - 45px);
       margin: 15px;
-      box-shadow: 0 0 15px #2E282A;
-      background-color: #A67F8E;
+      box-shadow: 5px 5px 0px #2E282A;
+      background-color: #EFECE0;
       .category-title {
         padding: 5px 15px 5px 15px;
-        background-color: #2E282A;
+        background-color: #bac090;
         margin-bottom: 5px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        color: #F3E9DC;
-        text-decoration: underline #2E282A;
+        color: #64332c;
+        text-decoration: underline #bac090;
       }
       img {
         margin-bottom: 10px;
