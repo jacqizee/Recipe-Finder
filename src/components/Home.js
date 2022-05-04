@@ -32,7 +32,7 @@ const Home = () => {
         <p>or</p>
         <Link to="/region">
           <div className="region">
-            <h2>Region</h2>
+            <h2>Cuisine</h2>
             <p>(Italian, Indian, Chinese etc.)</p>
           </div>
         </Link>

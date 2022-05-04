@@ -10,7 +10,7 @@ const Region = () => {
   const [ region, setRegion ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
-  
+
   useEffect(() => {
     const getRegion = async () => {
       try {
@@ -24,6 +24,7 @@ const Region = () => {
     }
     getRegion()
   }, [regionID])
+
 
   return (
     <section className="region-container">
