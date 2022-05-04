@@ -3,12 +3,17 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import PageNotFound from './PageNotFound'
+import FilterFunction from './FilterFunction'
 
 const Regions = () => {
 
   const [ regions, setRegions ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setErrors ] = useState(false)
+  const [ filteredRegions, setFilteredRegions ] = useState([])
+  const [filters, setFilters ] = useState ({
+    searchTerm: ''
+  })
 
   useEffect(() => {
 
@@ -26,14 +31,36 @@ const Regions = () => {
     getRegions()
   }, [])
 
+
+  const handleChange = (e) => {
+    const updatedObj = {
+      ...filters,
+      [e.target.name]: e.target.value
+    }
+    setFilters(updatedObj)
+    console.log(updatedObj)
+  }
+
+  useEffect(() => {
+    if (regions.length) {
+      const regexSearch = new RegExp(filters.searchTerm, 'i')
+      const filtered = regions.filter(country => {
+        return regexSearch.test(country.strArea)
+      })
+      console.log('filtered',filtered)
+      setFilteredRegions(filtered)
+    }
+  }, [filters, regions])
+
   return (
     <section className = 'region-container'>
-      <h1>Regions</h1>
+      <h1>Cuisines</h1>
+      <FilterFunction filters = {filters} handleChange={handleChange} />
       <div className="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
         : !regions ? <PageNotFound /> :
-        regions.map((region, index) => {
+        filteredRegions.map((region, index) => {
           const { strArea } = region
           return (
             <Link to={`/region/${strArea}`} key={index}>
