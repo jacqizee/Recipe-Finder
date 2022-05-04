@@ -11,6 +11,11 @@ const Category = () => {
   const [ category, setCategory ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
+  const [ filteredDishes, setFilteredDishes ] = useState([])
+  const [filters, setFilters ] = useState ({
+    searchTerm: ''
+  })
+
   
   useEffect(() => {
     const getCategory = async () => {
@@ -26,14 +31,38 @@ const Category = () => {
     getCategory()
   }, [categoryID])
 
+  const handleChange = (e) => {
+    const updatedObj = {
+      ...filters,
+      [e.target.name]: e.target.value
+    }
+    setFilters(updatedObj)
+    console.log(updatedObj)
+  }
+
+  useEffect(() => {
+    if (category.length) {
+      const regexSearch = new RegExp(filters.searchTerm, 'i')
+      const filtered = category.filter(dish => {
+        return regexSearch.test(dish.strMeal)
+      })
+      console.log('filtered',filtered)
+      setFilteredDishes(filtered)
+    }
+  }, [filters, category])
+
+
   return (
     <section className="cat-container">
       <h1>{categoryID}</h1>
+      <div className="filter-container">
+      <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
+    </div>
       <div className='cat-detail-grid'>
         {loading ? <Spinner />
         : error ? <p>error</p> 
         : !category ? <PageNotFound /> :
-        category.map(dish => {
+        filteredDishes.map(dish => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
           return (
             <Link to={`/recipe/${id}`} key={id}>
