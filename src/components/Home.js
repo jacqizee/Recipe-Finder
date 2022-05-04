@@ -21,7 +21,8 @@ const Home = () => {
 
   return (
     <section className='home-container'>
-      <h1>Find my recipe...</h1>
+      <h1>RecipeFinder</h1>
+      <h3>Find a recipe...</h3>
       <section className='home-content'>
         <Link to="/category">
           <div className="categories">
@@ -46,7 +47,6 @@ const Home = () => {
       </section>
     </section>
   )
-
 }
 
 export default Home
