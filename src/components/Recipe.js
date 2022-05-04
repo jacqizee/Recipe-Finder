@@ -44,8 +44,10 @@ const Recipe = () => {
 
   useEffect(() => {
     const getFavStatus = () => {
-      const favArrayString = JSON.parse(window.localStorage.getItem('fav-recipes')).map(value => JSON.stringify(value))
-      favArrayString.indexOf(JSON.stringify(recipe)) !== -1 ? setFavMsg("💔") : setFavMsg("❤️")
+      if (JSON.parse(window.localStorage.getItem('fav-recipes'))) {
+        const favArrayString = JSON.parse(window.localStorage.getItem('fav-recipes')).map(value => JSON.stringify(value))
+        favArrayString.indexOf(JSON.stringify(recipe)) !== -1 ? setFavMsg("💔") : setFavMsg("❤️")
+      }
     }
     getFavStatus()
   }, [recipe])
