@@ -10,11 +10,10 @@ import Recipe from './components/Recipe'
 import SiteNavbar from './components/SiteNavbar.js'
 import Favorites from './components/Favorites'
 import RecipeList from './components/RecipeList' 
+import PageNotFound from './components/PageNotFound'
 
 
 const App = () => {
-
-
 
   return (
     
@@ -24,11 +23,15 @@ const App = () => {
         <Route path = '/' element = {<Home />} />
         <Route path = '/category' element = {<Categories />} />
         <Route path = '/category/:categoryID' element = {<Category />} />
+        <Route path = '/category/*' element = {<PageNotFound />} />
         <Route path = '/region' element = {<Regions />} />
         <Route path = '/region/:regionID' element = {<Region />} />
+        <Route path = '/region/*' element = {<PageNotFound />} />
         <Route path = '/recipe/:recipeID' element = {<Recipe />} />
+        <Route path = '/recipe/*' element = {<PageNotFound />} />
         <Route path = '/favorites' element = {<Favorites />} />
         <Route path = '/allrecipes' element = {<RecipeList/>} />
+        <Route path = '/*' element = {<PageNotFound />} />
       </Routes>
     </BrowserRouter>
 

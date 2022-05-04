@@ -5,6 +5,7 @@ import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Container } from 'react-bootstrap'
+import PageNotFound from './PageNotFound'
 
 const Category = () => {
 
@@ -33,7 +34,7 @@ const Category = () => {
       <div className='cat-detail-grid'>
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
-        : 
+        : !category ? <PageNotFound /> :
         category.map(dish => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
           return (

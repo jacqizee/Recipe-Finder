@@ -61,7 +61,7 @@ const Recipe = () => {
   return (
     loading ? <p>loading</p> 
       : error ? <p>error</p> 
-      :
+      : 
       <Row xs="1" md="2" className="recipe-container">
         <Col className="overview">
           <h1>{recipe.strMeal}</h1>

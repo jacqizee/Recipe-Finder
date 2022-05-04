@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Container } from 'react-bootstrap'
-
-
+import PageNotFound from './PageNotFound'
 
 const Regions = () => {
-
 
   const [ regions, setRegions ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setErrors ] = useState(false)
-
 
   useEffect(() => {
 
@@ -32,15 +26,13 @@ const Regions = () => {
     getRegions()
   }, [])
 
-
-
   return (
     <section className = 'region-container'>
       <h1>Regions</h1>
       <div className="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
-        : 
+        : !regions ? <PageNotFound /> :
         regions.map((region, index) => {
           const { strArea } = region
           return (

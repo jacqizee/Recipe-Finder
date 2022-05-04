@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Container } from 'react-bootstrap'
-
-
+import PageNotFound from './PageNotFound'
 
 const Categories = () => {
-
 
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setErrors] = useState(false)
-
 
   useEffect(() => {
 
@@ -32,15 +26,13 @@ const Categories = () => {
     getCategories()
   }, [])
 
-
-
   return (
     <section className='category-container'>
       <h1>Categories</h1>
       <div className="category-content">
         {loading ? <p>loading</p>
           : error ? <p>error</p>
-            :
+            : !categories ? <PageNotFound /> :
             categories.map(category => {
               const { strCategory, idCategory, strCategoryThumb } = category
               return (

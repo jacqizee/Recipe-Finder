@@ -2,9 +2,7 @@ import React, { useEffect, useState} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Container } from 'react-bootstrap'
+import PageNotFound from './PageNotFound'
 
 const Region = () => {
 
@@ -33,7 +31,7 @@ const Region = () => {
       <div className ="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
-        : 
+        : !region ? <PageNotFound /> :
         region.map(dish => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
           return (
