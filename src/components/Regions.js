@@ -6,11 +6,11 @@ import PageNotFound from './utility/PageNotFound'
 
 const Regions = () => {
 
-  const [ regions, setRegions ] = useState([])
-  const [ loading, setLoading ] = useState(true)
-  const [ error, setErrors ] = useState(false)
-  const [ filteredRegions, setFilteredRegions ] = useState([])
-  const [filters, setFilters ] = useState ({
+  const [regions, setRegions] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setErrors] = useState(false)
+  const [filteredRegions, setFilteredRegions] = useState([])
+  const [filters, setFilters] = useState({
     searchTerm: ''
   })
 
@@ -46,33 +46,33 @@ const Regions = () => {
       const filtered = regions.filter(country => {
         return regexSearch.test(country.strArea)
       })
-      console.log('filtered',filtered)
+      console.log('filtered', filtered)
       setFilteredRegions(filtered)
     }
   }, [filters, regions])
 
   return (
-    <section className = 'region-container'>
+    <section className='region-container'>
       <h1>Cuisines</h1>
       <div className="filter-container">
-      <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
-    </div>
+        <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
+      </div>
       <div className="region-detail">
-        {loading ? <p>loading</p> 
-        : error ? <p>error</p> 
-        : !regions ? <PageNotFound /> :
-        filteredRegions.map((region, index) => {
-          const { strArea } = region
-          return (
-            <Link to={`/region/${strArea}`} key={index}>
-              <div className = 'region-tile'>
-                <div className = 'area-title'>{strArea}</div>
-                <div className = 'flag-container' id = {strArea}>
-                </div>
-              </div>
-            </Link>
-          )
-        })}
+        {loading ? <p>loading</p>
+          : error ? <p>error</p>
+            : !regions ? <PageNotFound /> :
+              filteredRegions.map((region, index) => {
+                const { strArea } = region
+                return (
+                  <Link to={`/region/${strArea}`} key={index}>
+                    <div className='region-tile'>
+                      <div className='area-title'>{strArea}</div>
+                      <div className='flag-container' id={strArea}>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })}
       </div>
     </section>
   )

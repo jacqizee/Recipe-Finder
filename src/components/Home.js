@@ -41,7 +41,7 @@ const Home = () => {
       <section className='home-random'>
         <Link to={`/recipe/${random}`}>
           <button className='btn btn-primary btn-random'>
-            I can't decide!
+            Can't decide?
           </button>
         </Link>
       </section>
