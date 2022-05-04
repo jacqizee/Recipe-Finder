@@ -1,11 +1,13 @@
 import React, { useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 const Recipe = () => {
+  
+  const navigate = useNavigate()
 
   const { recipeID } = useParams()
   const [ recipe, setRecipe ] = useState([])
@@ -42,10 +44,10 @@ const Recipe = () => {
     if (favArray === null) {
       favArray = [recipe]
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
-    // } else if (favArray.indexOf(recipe.strID) !== -1) {
-    //   console.log('present', favArray.indexOf(recipe) === -1)
-      // favArray.splice(favArray.indexOf(recipe), 1)
-      // window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
+    } else if (favArray.indexOf(recipe.strID) !== -1) {
+      console.log('present', favArray.indexOf(recipe) === -1)
+      favArray.splice(favArray.indexOf(recipe), 1)
+      window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
     } else {
       favArray.push(recipe)
       favArray = favArray.map(value => JSON.stringify(value))
@@ -53,6 +55,7 @@ const Recipe = () => {
       uniqueArray = uniqueArray.map(value => JSON.parse(value))
       window.localStorage.setItem('fav-recipes', JSON.stringify(uniqueArray))
     }
+    navigate('/favorites')
   }
 
   return (
