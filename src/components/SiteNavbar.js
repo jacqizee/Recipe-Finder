@@ -27,7 +27,7 @@ const SiteNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
           <Nav.Link as={Link} to="/category">Categories</Nav.Link>
           <Nav.Link as={Link} to="/region">Cuisines</Nav.Link>
-          <Nav.Link as={Link} to="/favorites">💕</Nav.Link>
+          <Nav.Link as={Link} to="/favorites">❤️</Nav.Link>
           <Nav.Link onClick={getRandom} className="btn random">Random</Nav.Link>
         </Navbar.Collapse>
       </Container>
