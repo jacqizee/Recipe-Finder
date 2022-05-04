@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import PageNotFound from './utility/PageNotFound'
-import FilterFunction from './FilterFunction'
 
 const Regions = () => {
 
@@ -55,7 +54,9 @@ const Regions = () => {
   return (
     <section className = 'region-container'>
       <h1>Cuisines</h1>
-      <FilterFunction filters = {filters} handleChange={handleChange} />
+      <div className="filter-container">
+      <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
+    </div>
       <div className="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
