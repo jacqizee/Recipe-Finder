@@ -55,7 +55,7 @@ const Recipe = () => {
   const addFav = () => {
     let favArray = JSON.parse(window.localStorage.getItem('fav-recipes'))
     if (favArray === null) {
-      favArray = [recipe]
+      favArray = [{...recipe}]
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
     } else {
       let favArrayString = favArray.map(value => JSON.stringify(value))
@@ -66,8 +66,8 @@ const Recipe = () => {
       }
       favArray = favArrayString.map(value => JSON.parse(value))
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
-      navigate('/favorites')
     }
+    navigate('/favorites')
   }
 
   return (

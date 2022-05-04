@@ -36,7 +36,6 @@ const Region = () => {
       [e.target.name]: e.target.value
     }
     setFilters(updatedObj)
-    console.log(updatedObj)
   }
 
   useEffect(() => {
@@ -45,7 +44,6 @@ const Region = () => {
       const filtered = region.filter(country => {
         return regexSearch.test(country.strMeal)
       })
-      console.log('filtered',filtered)
       setFilteredRegion(filtered)
     }
   }, [filters, region])

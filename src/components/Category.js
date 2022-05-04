@@ -37,7 +37,6 @@ const Category = () => {
       [e.target.name]: e.target.value
     }
     setFilters(updatedObj)
-    console.log(updatedObj)
   }
 
   useEffect(() => {
@@ -46,7 +45,6 @@ const Category = () => {
       const filtered = category.filter(dish => {
         return regexSearch.test(dish.strMeal)
       })
-      console.log('filtered', filtered)
       setFilteredDishes(filtered)
     }
   }, [filters, category])

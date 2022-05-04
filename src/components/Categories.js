@@ -19,7 +19,6 @@ const Categories = () => {
     const getCategories = async () => {
       try {
         const { data } = await axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
-        console.log(data)
         setCategories(data.categories)
       } catch (error) {
         console.log(error)
@@ -36,7 +35,6 @@ const Categories = () => {
       [e.target.name]: e.target.value
     }
     setFilters(updatedObj)
-    console.log(updatedObj)
   }
 
   useEffect(() => {
@@ -45,7 +43,6 @@ const Categories = () => {
       const filtered = categories.filter(category => {
         return regexSearch.test(category.strCategory)
       })
-      console.log('filtered', filtered)
       setFilteredCategories(filtered)
     }
   }, [filters, categories])

@@ -20,7 +20,6 @@ const Regions = () => {
     const getRegions = async () => {
       try {
         const { data } = await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list')
-        console.log(data)
         setRegions(data.meals)
       } catch (error) {
         console.log(error)
@@ -38,7 +37,6 @@ const Regions = () => {
       [e.target.name]: e.target.value
     }
     setFilters(updatedObj)
-    console.log(updatedObj)
   }
 
   useEffect(() => {
@@ -47,7 +45,6 @@ const Regions = () => {
       const filtered = regions.filter(country => {
         return regexSearch.test(country.strArea)
       })
-      console.log('filtered', filtered)
       setFilteredRegions(filtered)
     }
   }, [filters, regions])
