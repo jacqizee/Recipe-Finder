@@ -10,6 +10,10 @@ const Region = () => {
   const [ region, setRegion ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
+  const [ filteredRegion, setFilteredRegion ] = useState([])
+  const [filters, setFilters ] = useState ({
+    searchTerm: ''
+  })
 
   useEffect(() => {
     const getRegion = async () => {
@@ -25,15 +29,38 @@ const Region = () => {
     getRegion()
   }, [regionID])
 
+  const handleChange = (e) => {
+    const updatedObj = {
+      ...filters,
+      [e.target.name]: e.target.value
+    }
+    setFilters(updatedObj)
+    console.log(updatedObj)
+  }
+
+  useEffect(() => {
+    if (region.length) {
+      const regexSearch = new RegExp(filters.searchTerm, 'i')
+      const filtered = region.filter(country => {
+        return regexSearch.test(country.strMeal)
+      })
+      console.log('filtered',filtered)
+      setFilteredRegion(filtered)
+    }
+  }, [filters, region])
+
 
   return (
     <section className="region-container">
       <h1>{regionID}</h1>
+      <div className="filter-container">
+        <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
+      </div>
       <div className ="region-detail">
         {loading ? <p>loading</p> 
         : error ? <p>error</p> 
         : !region ? <PageNotFound /> :
-        region.map(dish => {
+        filteredRegion.map(dish => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
           return (
             <Link to={`/recipe/${id}`} key={id}>
