@@ -63,6 +63,17 @@
     button {
       background-color: $darkest;
       border: 1px solid $dark;
+      animation-name: bounce;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    }
+    @keyframes bounce {
+      0%   {background-color: $darkest;}
+      25%  {background-color: $dark;}
+      50%  {background-color: $medium;}
+      75%  {background-color: $dark;}
+      100% {background-color: $darkest;}
     }
   }
 }
