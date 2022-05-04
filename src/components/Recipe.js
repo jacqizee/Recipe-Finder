@@ -2,6 +2,8 @@ import React, { useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+import Spinner from './utility/Spinner'
+
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
@@ -13,7 +15,7 @@ const Recipe = () => {
   const [ recipe, setRecipe ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
-  let favoriteMessage = 'Add to Favorites'
+  const [ favMsg, setFavMsg] = useState("💕")
   
   useEffect(() => {
     const getRecipe = async () => {
@@ -44,22 +46,24 @@ const Recipe = () => {
     if (favArray === null) {
       favArray = [recipe]
       window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
-    } else if (favArray.indexOf(recipe.strID) !== -1) {
-      console.log('present', favArray.indexOf(recipe) === -1)
-      favArray.splice(favArray.indexOf(recipe), 1)
-      window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
+      setFavMsg("💕")
     } else {
-      favArray.push(recipe)
-      favArray = favArray.map(value => JSON.stringify(value))
-      let uniqueArray = [ ...new Set(favArray) ]
-      uniqueArray = uniqueArray.map(value => JSON.parse(value))
-      window.localStorage.setItem('fav-recipes', JSON.stringify(uniqueArray))
+      let favArrayString = favArray.map(value => JSON.stringify(value))
+      if (favArrayString.indexOf(JSON.stringify(recipe)) === -1) {
+        favArrayString.push(JSON.stringify(recipe))
+        setFavMsg("💔")
+      } else {
+        favArrayString.splice(favArrayString.indexOf(JSON.stringify(recipe)), 1)
+        setFavMsg("💕")
+      }
+      favArray = favArrayString.map(value => JSON.parse(value))
+      window.localStorage.setItem('fav-recipes', JSON.stringify(favArray))
+      navigate('/favorites')
     }
-    navigate('/favorites')
   }
 
   return (
-    loading ? <p>loading</p> 
+    loading ? <Spinner />
       : error ? <p>error</p> 
       : 
       <Row xs="1" md="2" className="recipe-container">
@@ -70,7 +74,7 @@ const Recipe = () => {
           <section className="buttons">
             <a href={recipe.strSource} target="_blank" rel="noopener noreferrer"><button className="btn btn-dark">View Original Recipe</button></a>
             <a href={recipe.strYoutube} target="_blank" rel="noopener noreferrer"><button className="btn btn-dark">Watch on YouTube</button></a>
-            <button className="btn btn-dark" onClick={addFav}>{favoriteMessage}</button>
+            <button className="btn btn-dark" onClick={addFav}>{favMsg}</button>
           </section>
         </Col>
         <Col className="steps">

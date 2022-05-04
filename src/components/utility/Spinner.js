@@ -1,9 +1,8 @@
 import React from 'react'
-import image from '../../images/spinner.gif'
 
 const Spinner = () => (
   <div className="spinner">
-    <img src={image} alt="spinner gif"/>
+    <img src={require('../../images/spinner.gif')} alt="spinner gif"/>
   </div>
 )
 

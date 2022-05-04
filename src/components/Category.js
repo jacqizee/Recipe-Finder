@@ -2,10 +2,8 @@ import React, { useEffect, useState} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Container } from 'react-bootstrap'
 import PageNotFound from './PageNotFound'
+import Spinner from './utility/Spinner'
 
 const Category = () => {
 
@@ -32,7 +30,7 @@ const Category = () => {
     <section className="cat-container">
       <h1>{categoryID}</h1>
       <div className='cat-detail-grid'>
-        {loading ? <p>loading</p> 
+        {loading ? <Spinner />
         : error ? <p>error</p> 
         : !category ? <PageNotFound /> :
         category.map(dish => {
