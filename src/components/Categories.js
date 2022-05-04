@@ -59,7 +59,7 @@ const Categories = () => {
       </div>
       <div className="category-content">
         {loading ? <Spinner />
-          : error ? <p>error</p>
+          : error ? <PageNotFound />
             : !categories ? <PageNotFound /> :
               filteredCategories.map(category => {
                 const { strCategory, idCategory, strCategoryThumb } = category

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import Spinner from './utility/Spinner'
+import PageNotFound from './utility/PageNotFound'
 
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -15,7 +16,7 @@ const Recipe = () => {
   const [ recipe, setRecipe ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
-  const [ favMsg, setFavMsg] = useState("💕")
+  const [ favMsg, setFavMsg] = useState("❤️")
   
   useEffect(() => {
     const getRecipe = async () => {
@@ -69,7 +70,7 @@ const Recipe = () => {
 
   return (
     loading ? <Spinner />
-      : error ? <p>error</p> 
+      : error ? <PageNotFound />
       : 
       <Row xs="1" md="2" className="recipe-container">
         <Col className="overview">

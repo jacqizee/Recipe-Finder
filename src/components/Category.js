@@ -60,7 +60,7 @@ const Category = () => {
       </div>
       <div className='cat-detail-grid'>
         {loading ? <Spinner />
-          : error ? <p>error</p>
+          : error ? <PageNotFound />
             : !category ? <PageNotFound /> :
               filteredDishes.map(dish => {
                 const { idMeal: id, strMeal: name, strMealThumb: img } = dish

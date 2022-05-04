@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import PageNotFound from './utility/PageNotFound'
+import Spinner from './utility/Spinner'
 
 const Regions = () => {
 
@@ -58,8 +59,8 @@ const Regions = () => {
         <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
       </div>
       <div className="region-detail">
-        {loading ? <p>loading</p>
-          : error ? <p>error</p>
+        {loading ? <Spinner />
+          : error ? <PageNotFound />
             : !regions ? <PageNotFound /> :
               filteredRegions.map((region, index) => {
                 const { strArea } = region

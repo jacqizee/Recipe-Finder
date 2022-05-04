@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
 import PageNotFound from './utility/PageNotFound'
+import Spinner from './utility/Spinner'
 
 const Region = () => {
 
@@ -57,8 +58,8 @@ const Region = () => {
         <input type="text" name="searchTerm" placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
       </div>
       <div className ="region-detail">
-        {loading ? <p>loading</p> 
-        : error ? <p>error</p> 
+        {loading ? <Spinner />
+        : error ? <PageNotFound />
         : !region ? <PageNotFound /> :
         filteredRegion.map(dish => {
           const { idMeal: id, strMeal: name, strMealThumb: img } = dish
