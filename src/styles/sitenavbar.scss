@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #1C5D99 !important;
+  background-color: $darkest !important;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
   .container {
     #basic-navbar-nav {
@@ -7,16 +7,16 @@
         color: #fff;
       }
       a:hover {
-        color: #BBCDE5;
+        color: $light;
       }
       .random {
-        color: #1C5D99;
-        background-color: #BBCDE5;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.5)
+        color: #fff;
+        background-color: $dark;
+        border: 1px solid $dark;
       }
       .random:hover, .random:active {
-        color: #1C5D99;
-        box-shadow: 2px 2px 2px rgba(0,0,0,0.5)
+        color: $medium;
+        background-color: $light;
       }
     }
   }

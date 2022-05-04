@@ -1,10 +1,12 @@
 .home-container {
   text-align: center;
   max-height: 100vh;
-  background-color: #d7dde6;
+  background-color: $lightest;
   width: 50%;
   height: 95%;
   margin: 0 auto;
+  padding: 25px;
+  padding-top: 0px;
   h1 {
     margin: 25px;
     margin-top: 75px;
@@ -19,8 +21,10 @@
     }
     a {
       text-decoration: none;
-      background-color: #BBCDE5;
+      background-color: $light;
       border-radius: 50px;
+      color: $dark;
+      box-shadow: 5px 5px 0px $darkest;
       div {
         height: 250px;
         width: 250px;
@@ -28,6 +32,15 @@
         justify-content: center;
         align-items: center;
       }
+    }
+    a:active {
+      box-shadow: 2px 2px 0px $darkest;
+    }
+  }
+  .home-random {
+    button {
+      background-color: $darkest;
+      border: 1px solid $dark;
     }
   }
 }

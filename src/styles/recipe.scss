@@ -4,7 +4,7 @@
   margin: 0px 35px;
   padding: 15px 0;
   .overview {
-    background-color: #BBCDE5;
+    background-color: $lightest;
     max-height: 100%;
     text-align: center;
     padding: 5px;
@@ -19,12 +19,13 @@
     img {
       max-height: 75%;
       max-width: 95%;
-      border: 10px solid white;
+      border: 10px solid $light;
     }
     .buttons {
       display: flex;
       justify-content: center;
       button {
+        background-color: $darkest;
         margin: 10px;
       }
     }
@@ -42,6 +43,7 @@
           flex-direction: column;
           flex-wrap: wrap;
           overflow: scroll;
+          background-color: $lightest;
         }
       }
     }
@@ -50,13 +52,16 @@
         font-size: .88rem;
         max-height: 200px;
         overflow: scroll;
+        background-color: $lightest;
+        padding: 5px;
       }
     }
     .ingredients, .how-to {
+      background-color: $light;
       padding: 10px 15px;
       margin: 5px;
       border-radius: 5px;
-      border: 2px solid black;
+      border: 2px double $dark;
     }
   }
 }
