@@ -68,7 +68,7 @@ Next, we wireframed a general plan for how we wanted the site to look, and what 
 ### Coding
 
 * We pair-coded the core features of the website, but then worked separately on certain features to make sure we maximized the use of our time given the short time frame, such as divying up the styling of different pages, and working on different features separately.
-  * My partner worked to pull images from the CountryFlags API that we could use on our "Cuisines" page, as The MealDB did not provide any images. My partner also worked to roll out the search bar feature across several pages for a consistent experience across both the Category and Cuisine pages.
+  * My partner worked to pull images from the CountryFlags API that we could use on our "Cuisines" page, as The MealDB did not provide any images. My partner also worked to roll out the search feature across several pages for a consistent experience across both the Category and Cuisine pages.
   * On my end, I worked to implement the random buttons on both the homepage and the navbar, as well as the storage of favorites on local memory and ensuring sure the heart button on the recipe page was reflective of whether or not the recipe was already saved to favorites or not.
 
 ## Reflection
