@@ -10,9 +10,16 @@ You can find the deployed version of our project [here](https://find-din-recipes
 ## Navigation
 
 * [Brief](#the-brief)
-* [Technologies Used](#technologies-used)
-* [Approach](#approach)
+* [Technologies](#technologies)
+* [Planning](#planning)
+  * [Features](#features)
+  * [Wireframing](#wireframing)
+* [Coding](#coding)
+  * [Search Feature](#search-feature)
+  * [Favorites Feature](#favorites-feature)
 * [Reflection](#reflection)
+  * [Challenges](#challenges)
+  * [Key Learnings](#key-learnings)
 * [Future Features](#future-features)
 * [Credits](#credits)
 
@@ -28,8 +35,8 @@ You can find the deployed version of our project [here](https://find-din-recipes
 * Include wireframes - that you designed before building the app
 * Be deployed online and accessible to the public
 
-## Technologies Used
-**Languages:**
+## Technologies 
+
 * JavaScript (ES6+)
 * React & React Router
 * HTML5 & CSS3
@@ -37,8 +44,6 @@ You can find the deployed version of our project [here](https://find-din-recipes
 * Bootstrap
 * Axios
 * [The MealDB API](https://www.themealdb.com/api.php)
-
-**Dev Tools:**
 * VSCode
 * Eslint
 * Git & GitHub
@@ -109,7 +114,7 @@ Once we defined the filter state, we filtered the array we fetched from the API 
 
 #### Favorites Feature
 
-Personally, one of the most challenging parts of this project for me was implementing the favorites feature. I didn't yet know that localStorage stored items as strings, so once I understood that concept, I was then able to create and manipulate a favorites array by parsing/stringifying it. Then, depending on whether or not the array existed, I was able to add/remove items from the array, elimiating the chances of duplicate favorites.
+Personally, one of the most challenging parts of this project for me was implementing the favorites feature. I didn't yet know that localStorage stored items as strings, so once I understood that concept, I was then able to create and manipulate a favorites array by parsing/stringifying it. Then, depending on whether or not the array existed, I was able to add/remove items from the array, elimiating the possibility of duplicate favorites (which was another issue I ran into during the coding process).
 
 ```
   // ! Adding a Favorite and Storing it on Local Memory
