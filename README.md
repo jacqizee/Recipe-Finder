@@ -167,6 +167,7 @@ If we had more time, we would have loved to incorporate additional features, lik
 * Recipe search by ingredient - allowing users to filter for recipes given 1-5 ingredient inputs.
 * Portion control - allow users to scale a recipe up or down (ex. halving/doubling the ingredients) with a +/- tick option
 * Cuisine & Category filtering - if we had access to the whole list of recipes via the API, combining the cuisine and category pages into one grand page with differnt filtering/search options would give the user more search power on just one page
+* Improve website responsive design, especially for mobile screen sizes
 
 ## Credits:
 
