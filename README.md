@@ -164,9 +164,9 @@ For me, this project reinforced the idea that while planning is /key/ with any p
 ### Wins
 
 Some of the wins for this project included:
-* learning to work in a two person team, pair-coding and talking through different aspects of the project
-* using a third-party API, sending requests and using the information we recieved back to implement features for our web app
-* using local storage and JSON stringify/parse to store favorite recipes
+* Learning to work in a two person team, pair-coding and talking through different aspects of the project
+* Using a third-party API, sending requests and using the information we recieved back to implement features for our web app
+* Using local storage and JSON stringify/parse to store favorite recipes
 
 ## Future Features
 
