@@ -75,11 +75,11 @@ Next, we wireframed a general plan for how we wanted the site to look, and what 
 
 * We pair-coded the core features of the website (fetching data from the API, routing, etc.), but then worked separately on certain features to make sure we maximized the use of our time given the short time frame, such as dividing up the styling of different pages and working on certain features separately.
  * My partner worked to download images from the CountryFlags API that we could add to a folder to use on our "Cuisines" page, as The MealDB did not provide any images. My partner also worked to roll out the search feature across several pages for a consistent experience across both the Category and Cuisine pages.
- * On my end, I worked to implement the random buttons on both the homepage and the navbar, as well as the storage of favorites on local memory and ensuring sure the heart button on the recipe page was reflective of whether or not the recipe was already saved to favorites or not.
+ * On my end, I worked to implement the random buttons on both the homepage and the navbar, as well as the storage of favorites on local memory and ensuring the heart button on the recipe page was reflective of whether or not the recipe was already saved to favorites or not.
 
 ### Search Feature
 
-The search filter on each page was implementing using a combination of useState and useEffect, where when the value of the text input box changed, we would update the filters state, then use this to create a filtered array.
+The search filter on each page was implemented using a combination of useState and useEffect, where when the value of the text input box changed, we would update the filter's state, then use this to create a filtered array.
 
 Within this handleChange() function below, while we could have achieved the same result with simply `setFilters(e.target.value)`, we set the state as an object to keep the door open for additional filtering options in the future:
 
@@ -114,7 +114,7 @@ Once we defined the filter state, we filtered the array we fetched from the API 
 
 #### Favorites Feature
 
-Personally, one of the most challenging parts of this project for me was implementing the favorites feature. I didn't yet know that localStorage stored items as strings, so once I understood that concept, I was then able to create and manipulate a favorites array by parsing/stringifying it. Then, depending on whether or not the array existed, I was able to add/remove items from the array, eliminating the possibility of duplicate favorites (which was another issue I ran into during the coding process).
+Personally, one of the most challenging parts of this project for me was implementing the favorite feature. I didn't yet know that localStorage stored items as strings, so once I understood that concept, I was then able to create and manipulate a favorites array by parsing/stringifying it. Then, depending on whether or not the array existed, I was able to add/remove items from the array, eliminating the possibility of duplicate favorites (which was another issue I ran into during the coding process).
 
 ```
   // ! Adding a Favorite and Storing it on Local Memory
@@ -155,18 +155,19 @@ useEffect(() => {
 
 ### Challenges
 
-Working within a very short time frame meant really prioritizing certain aspects over others, such as working to implement core features for the user over other aspects that aren't a top priority. For me, this was reducing time put towards styling, and instead spending more time on refining and de-bugging any features we had already added to make sure everything is in working order for our MVP and presentation.
+Working within a very short time frame meant really prioritizing certain aspects over others, such as working to implement core features for the user over other aspects that aren't a top priority. For me, this was reducing time put towards styling, and instead spending more time on refining and debugging any features we had already added to make sure everything is in working order for our MVP and presentation.
 
 ### Key Learnings
 
-For me, this project reinforced the idea that while planning is /key/ with any project-- planning with the /user/ in mind is imperative. Because we were under a short deadline, a lot of the initial planning was around what key + stretch features we wanted to add and how things should be laid out, but I think one thing we may have glossed over was thinking about the user and what features would be the most valuable to their experience on our website. Simple things, like a back button on the recipe page, would have been a desirable features to have, but was missed in the initial planning.
+For me, this project reinforced the idea that while planning is /key/ with any project-- planning with the /user/ in mind is imperative. Because we were under a short deadline, a lot of the initial planning was around what key + stretch features we wanted to add and how things should be laid out, but I think one thing we may have glossed over was thinking about the user and what features would be the most valuable to their experience on our website. Simple things, like a back button on the recipe page, would have been a desirable feature to have, but was missed in the initial planning.
 
 ### Wins
 
 Some of the wins for this project included:
 * Learning to work in a two person team, pair-coding and talking through different aspects of the project
-* Using a third-party API, sending requests and using the information we recieved back to implement features for our web app
+* Using a third-party API, sending requests and using the information we receive back to implement features for our web app
 * Using local storage and JSON stringify/parse to store favorite recipes
+
 
 ## Future Features
 
